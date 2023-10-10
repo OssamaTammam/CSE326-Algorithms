@@ -43,4 +43,4 @@ arr = [2, 3, 4, 5, 7]
 n = len(arr)
 
 max_sum = maxSubArray(arr, 0, n-1)
-print("Maximum contiguous sum is ", max_sum)
+print("(Low, High, Sum): ", max_sum)
