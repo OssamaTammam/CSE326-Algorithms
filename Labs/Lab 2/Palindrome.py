@@ -4,11 +4,10 @@ def palindrome(string, l, h):
 
     if string[l] != string[h]:
         return False
-
-    if string[l] == string[h]:
+    else:
         return palindrome(string, l+1, h-1)
 
 
-string = "a"
+string = ""
 sol = palindrome(string, 0, len(string)-1)
 print(sol)
