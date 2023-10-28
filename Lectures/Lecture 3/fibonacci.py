@@ -12,9 +12,19 @@ def fibonacci_top_down(n, memo={}):
 
 
 def fibonacci_bottom_up(n):
-    pass
+    if n == 0 or n == 1:
+        return n
+
+    fib = [0] * (n+1)
+    fib[1] = 1
+
+    for i in range(2, n+1):
+        fib[i] = fib[i-1] + fib[i-2]
+
+    return fib[n]
 
 
 n = 10
 
-print(f"Top down approach = {fibonacci_top_down(n)}\nBottom up approach = ")
+print(
+    f"Top down approach = {fibonacci_top_down(n)}\nBottom up approach = {fibonacci_bottom_up(n)}")
