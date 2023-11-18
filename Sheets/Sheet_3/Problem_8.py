@@ -7,7 +7,7 @@ def knapsack(nums, sum):
         for weight in range(1, sum+1):
             notTake = dp[item - 1][weight]
             take = 0
-            if (weight - nums[item - 1]) >= 0 and nums[item - 1] <= weight:
+            if nums[item - 1] <= weight:
                 take = nums[item - 1] + dp[item -
                                            1][(weight - nums[item - 1])]
             dp[item][weight] = max(take, notTake)
@@ -20,5 +20,5 @@ def knapsack(nums, sum):
 
 
 nums = [1, 2, 6]
-target = 7
+target = 3
 print(knapsack(nums, target))
