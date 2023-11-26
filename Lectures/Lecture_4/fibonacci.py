@@ -27,4 +27,5 @@ def fibonacci_bottom_up(n):
 n = 10
 
 print(
-    f"Top down approach = {fibonacci_top_down(n)}\nBottom up approach = {fibonacci_bottom_up(n)}")
+    f"Top down approach = {fibonacci_top_down(n)}\nBottom up approach = {fibonacci_bottom_up(n)}"
+)
