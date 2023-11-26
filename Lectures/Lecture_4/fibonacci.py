@@ -1,12 +1,12 @@
 def fibonacci_top_down(n, memo={}):
-    # base case
+    # if solved before just return the answer
     if n in memo:
         return memo[n]
 
-    if n == 0 or n == 1:
-        memo[n] = n
-    else:
-        memo[n] = fibonacci_top_down(n-1, memo) + fibonacci_top_down(n-2, memo)
+    if n <= 1:
+        return n
+
+    memo[n] = fibonacci_top_down(n-1) + fibonacci_top_down(n-2)
 
     return memo[n]
 
@@ -25,7 +25,6 @@ def fibonacci_bottom_up(n):
 
 
 n = 10
-
 print(
     f"Top down approach = {fibonacci_top_down(n)}\nBottom up approach = {fibonacci_bottom_up(n)}"
 )
