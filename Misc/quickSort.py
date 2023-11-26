@@ -1,31 +1,41 @@
-from typing import List
+from random import randint
 
 
-class QuickSort:
-    def __init__(self, arr: List[int]) -> None:
-        self.arr = arr
-        self.low = 0
-        self.high = len(arr) - 1
-        # self.quickSort()
+def quickSort(arr):
+    _quickSort(arr, 0, len(arr)-1)
 
-    def quickSort(self, arr: List[int], low: int, high: int) -> None:
-        if low >= high:
-            return
 
-        pivot: int = self.partition(arr, low, high)
-        self.quickSort(arr, low, pivot-1)
-        self.quickSort(arr, pivot+1, high)
+def _quickSort(arr, low, high):
+    # base case
+    if low >= high:
+        return
 
-    def partition(self, arr: List[int], low: int, high: int) -> int:
-        pivot: int = arr[high]
+    pivot = partition(arr, low, high)
+    _quickSort(arr, low, pivot)
+    _quickSort(arr, pivot+1, high)
 
-        i: int = low - 1
 
-        for j in range(low, high):
-            if arr[j] <= pivot:
-                i += 1
-                arr[i], arr[j] = arr[j], arr[i]
+def partition(arr, low, high):
+    # choose a random pivot
+    pivot = randint(low, high)
+    # move that pivot to the end of the array
+    arr[pivot], arr[high] = arr[high], arr[pivot]
+    pivotElement = arr[high]
 
-        arr[high], arr[i+1] = arr[i+1], arr[high]
+    # pointer that keeps track of where lesser elements should go one by one from the start of the array
+    i = low - 1
+    # high because we don't want to iterate over our pivot
+    for j in range(low, high):
+        if arr[j] < pivotElement:
+            i += 1
+            arr[j], arr[i] = arr[i], arr[j]
 
-        return i + 1
+    # i should be at the position for the last lesser element encountered so normally the pivot should be the next position
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+
+    return i + 1
+
+
+arr = [3, 6, -1, -5, 6, 7, 1, 2, 0]
+quickSort(arr)
+print(f"Sorted Array: {arr}")
