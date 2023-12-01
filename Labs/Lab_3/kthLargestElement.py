@@ -8,9 +8,9 @@ def kthLargestElement(nums, low, high, k):
     if pivotIndex == target:
         return nums[pivotIndex]
     elif pivotIndex > target:
-        return kthLargestElement(nums, low, pivotIndex-1, k)
+        return kthLargestElement(nums, low, pivotIndex - 1, k)
     else:
-        return kthLargestElement(nums, pivotIndex+1, high, k)
+        return kthLargestElement(nums, pivotIndex + 1, high, k)
 
 
 def partition(nums, low, high):
@@ -23,7 +23,7 @@ def partition(nums, low, high):
         if nums[j] <= pivot:
             i += 1
             nums[i], nums[j] = nums[j], nums[i]
-    nums[i+1], nums[high] = nums[high], nums[i+1]
+    nums[i + 1], nums[high] = nums[high], nums[i + 1]
 
     return i + 1
 

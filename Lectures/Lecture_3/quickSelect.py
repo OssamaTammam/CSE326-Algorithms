@@ -7,7 +7,7 @@ def generateRandomArray(size):
 
 
 def quickSelect(arr, k):
-    return _quickSelect(arr, k, 0, len(arr)-1)
+    return _quickSelect(arr, k, 0, len(arr) - 1)
 
 
 def _quickSelect(arr, k, low, high):
@@ -21,9 +21,9 @@ def _quickSelect(arr, k, low, high):
     if rank == k:
         return arr[rank]
     elif k < rank:
-        return _quickSelect(arr, k, low, pivot-1)
+        return _quickSelect(arr, k, low, pivot - 1)
     else:
-        return _quickSelect(arr, k, pivot+1, high)
+        return _quickSelect(arr, k, pivot + 1, high)
 
 
 def partition(arr, low, high):
@@ -42,7 +42,7 @@ def partition(arr, low, high):
             arr[j], arr[i] = arr[i], arr[j]
 
     # i should be at the position for the last lesser element encountered so normally the pivot should be the next position
-    arr[i+1], arr[high] = arr[high], arr[i+1]
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
 
     return i + 1
 

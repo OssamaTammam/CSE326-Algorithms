@@ -6,7 +6,7 @@ def maxCrossingSubArray(arr, low, high):
     if low == high:
         return arr[low]
 
-    mid = (low+high) // 2
+    mid = (low + high) // 2
 
     sumLeft = maxCrossingSubArray(arr, low, mid)
     sumRight = maxCrossingSubArray(arr, mid + 1, high)
@@ -17,14 +17,14 @@ def maxCrossingSubArray(arr, low, high):
 
 def crossing(arr, low, high, mid):
     # max crossing left
-    maxLeft = - math.inf
+    maxLeft = -math.inf
     curr = 0
     for i in range(mid, low - 1, -1):
         curr += arr[i]
         maxLeft = max(maxLeft, curr)
 
     # max crossing right
-    maxRight = - math.inf
+    maxRight = -math.inf
     curr = 0
     for i in range(mid + 1, high + 1):
         curr += arr[i]

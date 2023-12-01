@@ -2,7 +2,7 @@ from random import randint
 
 
 def quickSort(arr):
-    _quickSort(arr, 0, len(arr)-1)
+    _quickSort(arr, 0, len(arr) - 1)
 
 
 def _quickSort(arr, low, high):
@@ -12,7 +12,7 @@ def _quickSort(arr, low, high):
 
     pivot = partition(arr, low, high)
     _quickSort(arr, low, pivot)
-    _quickSort(arr, pivot+1, high)
+    _quickSort(arr, pivot + 1, high)
 
 
 def partition(arr, low, high):
@@ -31,7 +31,7 @@ def partition(arr, low, high):
             arr[j], arr[i] = arr[i], arr[j]
 
     # i should be at the position for the last lesser element encountered so normally the pivot should be the next position
-    arr[i+1], arr[high] = arr[high], arr[i+1]
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
 
     return i + 1
 

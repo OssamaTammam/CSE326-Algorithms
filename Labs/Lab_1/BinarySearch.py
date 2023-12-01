@@ -10,9 +10,9 @@ def binarySearch(arr, low, high, key):
     if key < arr[mid]:
         return binarySearch(arr, low, mid, key)
     else:
-        return binarySearch(arr, mid+1, high, key)
+        return binarySearch(arr, mid + 1, high, key)
 
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-sol = binarySearch(arr, 0, len(arr) - 1, 11)
+sol = binarySearch(arr, 0, len(arr) - 1, 3)
 print(sol)

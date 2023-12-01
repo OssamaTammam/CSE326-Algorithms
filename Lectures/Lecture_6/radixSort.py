@@ -10,7 +10,7 @@ def countingSort(arr, digitPlace):
         count[index % 10] += 1
 
     for i in range(1, 10):
-        count[i] += count[i-1]
+        count[i] += count[i - 1]
 
     for i in range(n - 1, -1, -1):
         index = arr[i] // exp
@@ -27,7 +27,7 @@ def radixSort(arr):
         currSigDigit = 0
         num = arr[i]
         while num > 0:
-            num = num//10
+            num = num // 10
             currSigDigit += 1
         maxSigDigit = max(maxSigDigit, currSigDigit)
 

@@ -7,18 +7,18 @@ def power(x, y):
         return 1
 
     if y > 0:
-        return x * power(x, y-1)
+        return x * power(x, y - 1)
     else:
-        return 1/power(x, y*-1)
+        return 1 / power(x, y * -1)
 
 
 def betterPower(x, y):
     if y < 0:
-        return 1 / betterPower(x, y*-1)
+        return 1 / betterPower(x, y * -1)
     if y == 0:
         return 1
 
-    buffer = betterPower(x, y//2)
+    buffer = betterPower(x, y // 2)
     if y % 2 == 0:
         return buffer * buffer
     else:
