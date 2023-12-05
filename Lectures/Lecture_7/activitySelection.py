@@ -15,9 +15,33 @@ def activitySelectionIterative(startTimes, finishTimes):
     return ans
 
 
+def activitySelectionRecursive(startTimes, finishTimes):
+    # Always select the first finishing activity as the first activity
+    selectedActivities = [finishTimes[0]]
+
+    return _activitySelectionRecursive(
+        startTimes, finishTimes, selectedActivities, len(startTimes)
+    )
+
+
+def _activitySelectionRecursive(
+    startTimes, finishTimes, selectedActivities, noRemainingActivities
+):
+    if noRemainingActivities == 0:
+        # Base case there are not more activities to consider
+        return selectedActivities
+
+    nextActivity = 1
+    while (
+        nextActivity < noRemainingActivities
+        and startTimes[nextActivity] < finishTimes[selectedActivities[-1]]
+    ):
+        nextActivity += 1
+
+
 startTimes = [1, 3, 0, 5, 8, 5]
 finishTimes = [2, 4, 6, 7, 9, 9]
 
 print(
-    f"Selected activities start times are {activitySelectionIterative(startTimes, finishTimes)}"
+    f"Iterative method: Selected activities start times are {activitySelectionIterative(startTimes, finishTimes)}"
 )
